@@ -32,7 +32,7 @@ export default class Example extends Component {
 	submitForm = () => {
 		this.setState({ url: "https://" + this.state.urlValue})
 		this._urlDrawer.closeDrawer()
-		this._tabDrawer.closeDrawer()
+		//this._tabDrawer.closeDrawer()
 	};
 
 	onWebLoad = () => {
@@ -45,13 +45,13 @@ export default class Example extends Component {
 
 	tabToSite =(item)=>{
 		this.setState({ url: item.key})
-		this._tabDrawer.closeDrawer()
+		//this._tabDrawer.closeDrawer()
   }
 
 	goToSite =(item)=>{
 		this.setState({ url: item.key})
 		this._urlDrawer.closeDrawer()
-		this._tabDrawer.closeDrawer()
+		//this._tabDrawer.closeDrawer()
   }
 
 	focusURL = () => {
@@ -192,6 +192,7 @@ export default class Example extends Component {
 						onDrawerClose = {this.blurURL}
 						renderNavigationView={() => urlView}
 					>
+          {/*
 	          <DrawerLayout
 							ref={(ref) => this._tabDrawer = ref}
 	            drawerWidth={70}
@@ -201,6 +202,7 @@ export default class Example extends Component {
 	            drawerPosition={DrawerLayout.positions.Right}
 	            renderNavigationView={() => tabBarView}
 						>
+          */}
 							<WebView
 			          source={{
 			            uri: url,
@@ -211,7 +213,9 @@ export default class Example extends Component {
                 javaScriptEnabledAndroid={true}
 								onNavigationStateChange={this._onNavigationStateChange.bind(this)}
 		        	/>
+              {/*
           	</DrawerLayout>
+            */}
 					</DrawerLayout>
         </View>
       </ViewPagerAndroid>
